@@ -1,0 +1,16 @@
+.card {
+    background-color: #f4f4f4;
+    width: 85%;
+    max-width: 350px;
+    .card-header {
+        background-color: red;
+    }
+    .card-body {
+        background-color: green;
+        .card-image {
+            width: 3em;
+            background-color: white;
+            border-radius: 100vw;
+        }
+    }
+}
