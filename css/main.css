@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 :root {
   --clr-bg: green;
+  --image-width: 20rem;
 }
 
 /* Box sizing rules */
@@ -25,8 +26,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+ul[role=list],
+ol[role=list] {
   list-style: none;
 }
 
@@ -45,7 +46,8 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -66,38 +68,70 @@ select {
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   *,
-  *::before,
-  *::after {
+*::before,
+*::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
-
 body {
-  background-color: var(--bg-clr);
+  background-color: #fcfdfd;
   color: var(--fg-clr);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
+}
+
+.wrapper {
+  width: -webkit-max-content;
+  width: max-content;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 .card {
   background-color: #f4f4f4;
-  width: 85%;
-  max-width: 350px;
 }
-
 .card .card-header {
-  background-color: red;
+  font-size: 1.2em;
 }
-
 .card .card-body {
-  background-color: green;
+  background: linear-gradient(5deg, #dae9f4, #c7e2f1);
+  width: 100%;
+  padding: 1em;
+  position: relative;
+}
+.card .card-body .card-image-container {
+  margin: 0 auto;
+  --image-width: 8rem;
+  position: relative;
+  width: var(--image-width);
+  height: calc(var(--image-width) * 1.25);
+  border-radius: 0 0 100vw 100vw;
+  overflow: hidden;
+}
+.card .card-body .card-image-container .card-image-inner {
+  position: absolute;
+  background-color: #fff;
+  width: var(--image-width);
+  height: var(--image-width);
+  border-radius: var(--image-width);
+  bottom: 0;
+}
+.card .card-body .card-image-container .card-image-inner img {
+  display: block;
+  max-width: 140%;
+  transform: translate(-14%, -17.5%);
+}
+.card .card-body .card-details {
+  font-size: 1em;
+}
+.card .card-footer {
+  font-size: 0.8em;
+  color: #666;
 }
 
-.card .card-body .card-image {
-  width: 3em;
-  background-color: white;
-  border-radius: 100vw;
+.center {
+  text-align: center;
 }
